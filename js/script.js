@@ -49,8 +49,7 @@ var quotes = [
 
 
 // Creates empty variable to hold the output html
-let html;
-
+let html = "";
 
 /***
  * Creates getRandomQuote function
@@ -67,31 +66,30 @@ function getRandomQuote() {
 /***
  * Creates printQuote function
  * Stores the returned object from the getRandomQuote variable currentQuote
- * Creates a concatenating html from the value of quote and source keys
- * uses if statements to check if there are citation and year values
+ * Creates a concatenated html from the value of quote and source keys
+ * Uses if statements to check if there are citation and year values
  * If so adds concatenates them into the html variable
- * finally, adds a closing </p> tag and returns the html variable
+ * Adds a closing </p> tag
+ * Sends the html variable to the provided code snippet to be displayed
+ * in the DIV with the id of "quote-box"
 ***/
 function printQuote() {
     let currentQuote = getRandomQuote();
-    let concHtml = '<p class="quote">' + currentQuote["quote"] + "</p>";
-    concHtml += '<p class="source">' + currentQuote["source"];
+    html = '<p class="quote">' + currentQuote["quote"] + "</p>";
+    html += '<p class="source">' + currentQuote["source"];
     if (currentQuote.citation !== "") {
-        concHtml += '<span class="citation">' + currentQuote["citation"] + '</span>';
+        html += '<span class="citation">' + currentQuote["citation"] + '</span>';
     }
     if (currentQuote.year !== "") {
-        concHtml += '<span class="year">' + currentQuote["year"] + '</span>';
+        html += '<span class="year">' + currentQuote["year"] + '</span>';
     }
-    concHtml += '</p>';
-    return concHtml;
+    html += '</p>';
+    document.getElementById('quote-box').innerHTML = html;
 }
 
 // Stores the returned value of the printQuote function in html variable
+//getRandomQuote();
 html = printQuote();
-
-// Displays the content of the html variable in the quote-box element
-document.getElementById('quote-box').innerHTML = html; 
-
 
 /***
  * click event listener for the print quote button

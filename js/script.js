@@ -55,9 +55,9 @@ let html;
 /***
  * Creates getRandomQuote function
  * Generates a random number
- * Uses the random number to access a randome object inside of the qoutes *array and return it.
+ * Uses the random number to access a random object inside of the quotes 
+ * array and return it.
  ***/
-
 function getRandomQuote() {
     let randomNumber = Math.floor(Math.random() * quotes.length);
     return quotes[randomNumber];
@@ -68,11 +68,10 @@ function getRandomQuote() {
  * Creates printQuote function
  * Stores the returned object from the getRandomQuote variable currentQuote
  * Creates a concatenating html from the value of quote and source keys
- * uses if statemnts to check if there are citation and year values
- * If so adds concatenates them into the html varaible
+ * uses if statements to check if there are citation and year values
+ * If so adds concatenates them into the html variable
  * finally, adds a closing </p> tag and returns the html variable
 ***/
-
 function printQuote() {
     let currentQuote = getRandomQuote();
     let concHtml = '<p class="quote">' + currentQuote["quote"] + "</p>";
@@ -87,7 +86,7 @@ function printQuote() {
     return concHtml;
 }
 
-// Stores the returned value of the printQuote function in html varable
+// Stores the returned value of the printQuote function in html variable
 html = printQuote();
 
 // Displays the content of the html variable in the quote-box element
@@ -98,5 +97,4 @@ document.getElementById('quote-box').innerHTML = html;
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-
 document.getElementById('load-quote').addEventListener("click", printQuote, false);

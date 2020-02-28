@@ -71,6 +71,7 @@ var quotes = [
 // Creates empty variable to hold the output html
 let html = "";
 let rgbColor;
+let previousNumber;
 const rgbNum = 256;
 
 /*** RANDOM NUMBER GENERATOR
@@ -93,13 +94,27 @@ function getRandomColor() {
 
 /*** RANDOM QUOTE FUNCTION
  * Creates getRandomQuote function
- * Generates a random number
- * Uses the random number to access a random object inside of the quotes 
- * array and return it.
- ***/
+ * Creates a empty variable names quote which will be used to store the final message
+ * Generates a random number and stores in randomNum variable
+ * Checks that variable against a previous one
+ * If they are the same it generates a new random number and then checks again
+ * Once it has found a number that is different, it replaces this new number in the
+ * previousNumber variable
+ * It then uses the random number to access a random object inside of the quotes 
+ * array and stores it in the quote variable.
+ * Finally, it returns the quote variable
+***/
+
 function getRandomQuote() {
+    let quote;
     let randomNumber = randomNumGen(quotes.length);
-    return quotes[randomNumber];
+    if (randomNumber === previousNumber) {
+        randomNumber = randomNumGen(quotes.length);
+    } else {
+        previousNumber = randomNumber;
+        quote = quotes[randomNumber];
+    }
+    return quote;
 }
 
 /*** PRINT QUOTE FUNCTION

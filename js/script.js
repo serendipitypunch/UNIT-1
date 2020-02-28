@@ -117,16 +117,16 @@ function getRandomQuote() {
 function printQuote() {
     let currentQuote = getRandomQuote();
     let currentColor = getRandomColor();
-    html = '<p class="quote">' + currentQuote["quote"] + "</p>";
-    html += '<p class="source">' + currentQuote["source"];
+    html = `<p class="quote"> ${currentQuote.quote} "</p>`;
+    html += `<p class="source"> ${currentQuote.source}`;
     if (currentQuote.citation !== "") {
-        html += '<span class="citation">' + currentQuote["citation"] + '</span>';
+        html += `<span class="citation"> ${currentQuote.citation} </span>`;
     }
     if (currentQuote.year !== "") {
         html += '<span class="year">' + currentQuote["year"] + '</span>';
     }
     if (currentQuote.tags !== "") {
-        html += '<span class="tags">' + "<br>" + currentQuote["tags"] + '</span>';
+        html += `<span class="tags"> <br> ${currentQuote.tags} </span>`;
     }
     html += '</p>';
     document.body.style.backgroundColor = currentColor;

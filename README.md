@@ -7,6 +7,6 @@
    - On button click or at a 7 second interval
  - The background color also changes color randomly
  
- It was a very fun porject to build and felt amazing once I finally got it working :)
+ It was a very fun project to build and felt amazing once I finally got it working :)
  
  
